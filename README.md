@@ -2,6 +2,8 @@
 
 Bossk is a quick (b)oscilloscope in processing.js.
 
+LIVE DEMO: http://figital.com/demos/bossk
+
 TODO:
 
 * the read var should be parsed out into a seperate function
