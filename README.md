@@ -6,3 +6,4 @@ TODO:
 
 * the read var should be parsed out into a seperate function
 * style should be extraced into JSON and/or CSS
+* extract "PDE-style" scripting into Javascript
