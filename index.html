@@ -1,0 +1,64 @@
+<!-- Bossk is a quick oscilloscope in processing.js -->
+
+<script type="text/javascript" src="http://processingjs.org/js/processing.min.js"></script>
+
+<script type="application/processing" data-processing-target="bossk"> 
+
+function stage(){
+	// DRAW THE BACKGROUND
+	background(50); // darkgrey
+	// DRAW THE GRID
+	strokeWeight(1);
+	stroke(90); // grey
+	for (i = 1; i < width/50; i++) {
+		line(i * 50, 0, i * 50, height);
+	}
+	for (i = 1; i < height/10; i++) {
+		line(0, i * 10, width, i * 10);
+	}
+	// DRAW THE MIDLINE
+	stroke(150); // blue
+	line(0,height/2,width,height/2);
+
+	
+}
+ 
+void setup() {
+	T = 0.0; // playback head position
+	size(500,100); // canvas size
+ 	midline = height/2;
+	noiseSeed(0);
+	v = 0;
+	inc = 0.1; // variance
+	last = 0;
+	stage();
+	ts = 0;
+	
+}
+void draw() {
+	frameRate(60);
+	ts++; // increase the timestamp
+	stroke(255,0,51); // red
+
+	float n = noise(v) * height; // create some noise
+	n = n - midline;
+	x = midline - n;
+	strokeWeight(1.5);
+
+	line(T-1, last, T, x+1); // draw line from previous position to now
+
+	// reset the playback head when the width is reached and redraw the stage
+	if (T > width) {
+		T = 0;
+		stage();
+	}
+
+	last = x;
+	T = T + .5; // increase the playback head
+	v = v + inc;
+	//console.log(ts + ': ' + n);
+	
+}
+</script> 
+
+<canvas id="bossk"></canvas>
