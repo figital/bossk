@@ -8,6 +8,8 @@ TODO:
 * style should be extraced into JSON and/or CSS
 * extract "PDE-style" scripting into Javascript
 * widgetize
+* reusable and scriptable
+* current x/y position should be available globally
 
 Here's what it looks like right now:
 
