@@ -3,5 +3,6 @@
 Bossk is a quick oscilloscope in processing.js.
 
 TODO:
+
 * the read var should be parsed out into a seperate function
 * style should be extraced into JSON and/or CSS
